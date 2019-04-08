@@ -2,39 +2,29 @@
 #include<string.h>
 int main()
 {
-    char s[205];
-    fgets(s,205,stdin);
-    int i,j,c=0,l;
-    l=strlen(s);
-    for(i=0;i<l;i++)
+    char s[200];
+
+    int i,n,j,c=0,p;
+    scanf("%d %d",&p,&n);scanf("%s",&s);
+    int l=strlen(s);
+    for(i=1;i<=n;i++)
     {
-            if(s[i]=='W'&&s[i+1]=='U'&&s[i+2]=='B')
-            {c=c+3;
-                if(i==0||i==l-4)
-                    {i=i+2;
-                    continue ;
 
-                }
-                else if(c==i)
-                {
-                    continue;
-                }
-                else if(i>=2)
-                    {
-                        if(s[i-1]=='B'&&s[i-2]=='U'&&s[i-3]=='W')
-                        {
-                            i=i+2;continue;
-                        }
-                        printf(" ");
-                        i=i+2;
-                       continue; ;
-                    }
-                continue ;
-
+        for(j=0;j<l-1;j++)
+        {
+            if(s[j]!=s[j+1])
+            {
+                char g;
+                g=s[j];
+                s[j]=s[j+1];
+                s[j+1]=g;
+                j=j+1;
             }
-           else {printf("%c",s[i]);}
+            else {continue ;}
+        }
 
     }
+    printf("%s",s);
     return 0;
 }
 
